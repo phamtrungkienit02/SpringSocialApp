@@ -71,12 +71,18 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
         
         http.authorizeRequests().antMatchers("/api/posts/**").permitAll();
         http.authorizeRequests().antMatchers("/api/posts/").permitAll();
+        http.authorizeRequests().antMatchers("/api/comments/**").permitAll();
+        http.authorizeRequests().antMatchers("/api/comments/").permitAll();
+        
+        http.authorizeRequests().antMatchers("/api/commentsByPostId/**").permitAll();
+        
+        
         http.authorizeRequests().antMatchers("/api/admin/stats/").permitAll();
         http.authorizeRequests().antMatchers("/api/admin/stats/top-5-product/").permitAll();
         http.authorizeRequests().antMatchers("/api/admin/stats/top-5-post-by-comment/").permitAll();
         http.authorizeRequests().antMatchers("/api/admin/stats/top-5-post-by-like/").permitAll();
         
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/**/comments/").permitAll();
+//        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/**/comments/").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/aution/**/").permitAll();
         //httpBasic lấy từ header token
         http.antMatcher("/api/**").httpBasic().authenticationEntryPoint(restServicesEntryPoint()).and()

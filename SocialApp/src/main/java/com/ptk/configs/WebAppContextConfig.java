@@ -6,8 +6,10 @@ package com.ptk.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.ptk.formatters.AutionProductFormatter;
 import com.ptk.formatters.CategoryFormatter;
 import com.ptk.formatters.PostFormatter;
+import com.ptk.formatters.ProductFormatter;
 import com.ptk.formatters.UserFormatter;
 import java.rmi.activation.Activatable;
 import java.text.SimpleDateFormat;
@@ -126,6 +128,8 @@ public class WebAppContextConfig implements WebMvcConfigurer {
         // test
         registry.addFormatter(new UserFormatter()); 
         registry.addFormatter(new PostFormatter()); 
+        registry.addFormatter(new ProductFormatter()); 
+        registry.addFormatter(new AutionProductFormatter()); 
     }
     
 //         @Bean

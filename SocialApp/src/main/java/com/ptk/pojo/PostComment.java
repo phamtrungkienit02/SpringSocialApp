@@ -73,7 +73,7 @@ public class PostComment implements Serializable {
     @JoinColumn(name = "post_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Posts postId;
-    @JsonIgnore
+   
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Users userId;

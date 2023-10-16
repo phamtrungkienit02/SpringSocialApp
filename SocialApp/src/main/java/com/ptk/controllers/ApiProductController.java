@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -42,5 +43,11 @@ public class ApiProductController {
     @CrossOrigin
     public ResponseEntity<List<Products>> list(@RequestParam Map<String, String> params) {
         return new ResponseEntity<>(this.productService.getProducts(params), HttpStatus.OK);
+    }
+    
+    @RequestMapping(path = "/products/{productId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin
+    public ResponseEntity<Products> details(@PathVariable(value = "productId") int id) {
+        return new ResponseEntity<>(this.productService.getProductById(id), HttpStatus.OK);
     }
 }

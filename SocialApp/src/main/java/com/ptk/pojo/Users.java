@@ -101,7 +101,7 @@ public class Users implements Serializable {
     private String password;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min = 0, max = 255)
     @Column(name = "avatar")
     private String avatar;
     @JsonIgnore

@@ -14,6 +14,10 @@ import cookie from "react-cookies";
 import Register from "./component/Register";
 import Posts from "./component/Posts";
 import 'moment/locale/vi';
+import ProductDetails from "./component/aution/ProductDetail";
+import PostDetail from "./component/PostDetail";
+import Livestream from "./component/Livestream/Livestream";
+import Room from "./component/Livestream/Room";
 
 export const MyUserContext = createContext();
 
@@ -36,8 +40,12 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/posts" element={<Posts />} />
-            {/* <Route path="/cart" element={<Cart />} />
-            <Route path="/products/:productId" element={<ProductDetails />} /> */}
+            <Route path="/livestream" element={<Livestream />} />
+            <Route path="/livestream/room/:roomId" element={<Room />} />
+            {/* <Route path="/cart" element={<Cart />} /> */}
+            <Route path="/products/:productId" element={<ProductDetails />} />
+            <Route path="/posts/:postId" element={<PostDetail />} />
+            
           </Routes>
         </Container>
         <Footer />

@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* style css */
+.room {
+  background-color: gray;
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}

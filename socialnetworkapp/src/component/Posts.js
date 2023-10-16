@@ -9,6 +9,7 @@ import Moment from "react-moment";
 
 
 
+
 const Posts = () => {
     const [posts, setPosts] = useState(null);
 
@@ -38,6 +39,8 @@ const Posts = () => {
         <Row>
 
             {posts.map(p => {
+                let url = `/posts/${p.id}`;
+
                 return <Col xs={12}  className="mt-2 mb-2">
                         <Card style={{ width: '80rem' }}>
                                 <Card.Body>
@@ -45,14 +48,15 @@ const Posts = () => {
                                     <div style={{display:"flex"}}>
                                         <Image variant="top" style={{height: "40px", width: "40px" ,marginRight:"10px"}} src={p.userId.avatar} roundedCircle />
                                         <Card.Text style={{color:"blue"}}>{p.userId.lastName} {p.userId.firstName} </Card.Text>
-                                        {/* y */}
-                                        <Moment locale="vi" style={{marginLeft : "auto"}} fromNow>{p.createdDate}</Moment>
+                                        {/* y locale="vi"*/}
+                                        <Moment locale="vi" style={{marginLeft : "auto"}} fromNow>{p.createdAt}</Moment>
                                       
                                     </div>
                                     <hr></hr>
                                     <Card.Title>{p.title}</Card.Title>
                                     <Card.Text> {p.content}  </Card.Text>
-                                    <Button variant="success" >Xem chi tiết bài viết</Button>
+                                    <Link  className="btn btn-success" to={url} 
+                                    >Xem chi tiết bài viết</Link>
                                 </Card.Body>
                         </Card>          
                      </Col>

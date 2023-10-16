@@ -44,12 +44,13 @@ public class ApiPostController {
     public ResponseEntity<List<Posts>> list(@RequestParam Map<String, String> params) {
         return new ResponseEntity<>(this.postService.getListPost(params), HttpStatus.OK);
     }
+    @RequestMapping(path = "/posts/{postId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin
+    public ResponseEntity<Posts> details(@PathVariable(value = "postId") int id) {
+        return new ResponseEntity<>(this.postService.getPostById(id), HttpStatus.OK);
+    }
     
-//    @RequestMapping(path = "/products/{productId}/", produces = MediaType.APPLICATION_JSON_VALUE)
-//    @CrossOrigin
-//    public ResponseEntity<Product> details(@PathVariable(value = "productId") int id) {
-//        return new ResponseEntity<>(this.prodService.getProductById(id), HttpStatus.OK);
-//    }
+
 ////    
 //    @PostMapping(path = "/posts", consumes = {
 //        MediaType.MULTIPART_FORM_DATA_VALUE,

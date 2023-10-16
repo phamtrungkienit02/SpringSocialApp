@@ -10,8 +10,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:url value="/products/aution/${product.id}/result" var="actionResult"/>
-<c:url value="/products/aution/${product.id}/aution" var="actionAution"/>
+
+
 <!--categoryId none-->
 <h1 class="text-center">CHÀO MỪNG ĐẾN VỚI SẢN PHẨM ĐẤU GIÁ</h1>
 
@@ -82,7 +82,9 @@
             </table>
             <br/>
             <div style="display:flex">
-                <form:form modelAttribute="aution" method="post" action="${actionAution}">
+<!--                url value="/products/aution/{product.id}/aution" var="actionAution"/>-->
+                <c:url value="/products/aution/${product.id}" var="actionAution"/>
+                <form:form modelAttribute="aution" method="post" action="${actionAution}" enctype="multipart/form-data">
                     <form:hidden path="id"/>    
 
                     <form:select class="form-select" id="userId" name="userId" path="userId" style="display:none">
@@ -91,7 +93,10 @@
                     <form:select class="form-select" id="productId" name="productId" path="productId" style="display:none">
                         <option value="${product.id}" selected></option>
                     </form:select>
-                    <form:input type="text" class="form-control" path="currentPrice" id="currentPrice" placeholder="currentPrice" name="currentPrice"/>
+                        
+        
+                    <form:input type="text" class="form-control" path="currentPrice" id="currentPrice" placeholder="Nhập giá..." name="currentPrice"/>
+                    
                     <button class="btn btn-success" value="Post" type="submit" >Xác nhận đấu giá </button>
 
                 </form:form>
@@ -127,22 +132,33 @@
                  
 
                     <td>
-
+                        <c:url value="/products/aution/${product.id}/result" var="actionResult"/>
                         <form:form modelAttribute="result" method="post" action="${actionResult}">
                             <form:hidden path="id"/>    
                             
-                            <form:select class="form-select" id="auctionProductId" name="auctionProductId" path="auctionProductId" style="display:none">
-                                <option value="${a[0]}" selected>abc</option>
-                            </form:select>
-                            <form:select class="form-select" id="winnerId" name="winnerId" path="winnerId" style="display:none">
-                                <option value="${a[3]}" selected>abc</option>
-                            </form:select>
-                            <form:select class="form-select" id="productId" name="productId" path="productId" style="display:none">
-                                <option value="${a[4]}" selected>abc</option>
-                            </form:select>
-                            <form:select class="form-select" id="price" name="price" path="price" style="display:none">
-                                <option value="${a[2]}" selected>abc</option>
-                            </form:select>
+                            <!--  form:select class="form-select" id="productId" name="productId" path="productId" />
+                                <option value="{product.id}" selected></option>s
+                                /form:select>
+                                form:input type="text" class="form-control" path="productId" id="productId" value="{a[5]}" /> -->
+                            
+                          
+                            <form:input type="text" class="form-control" path="winnerId" id="winnerId" value="${a[4]}" style="display:none"/>
+                            <form:input type="text" class="form-control" path="productId" id="productId" value="${a[5]}" style="display:none"/>
+                            <form:input type="text" class="form-control" path="price" id="price" value="${a[2]}" style="display:none"/>
+                             <form:input type="text" class="form-control" path="auctionProductId" id="auctionProductId" value="${a[0]}" style="display:none"/>
+                           
+<!--                            select class="form-select" id="auctionProductId" name="auctionProductId" path="auctionProductId" style="display:none">
+                                ption value="{a[0]}" selected>abc</option>
+                            form:select>
+                            form:select class="form-select" id="winnerId" name="winnerId" path="winnerId" style="display:none">
+                                ption value="{a[4]}" selected>abc</option>
+                            form:select>
+                            form:select class="form-select" id="productId" name="productId" path="productId" style="display:none">
+                                option value="{a[5]}" selected>abc</option>
+                            /form:select>
+                            form:select class="form-select" id="price" name="price" path="price" style="display:none">
+                                option value="{a[2]}" selected>abc</option>
+                            /form:select>-->
                               <button class="btn btn-success" value="Post" type="submit" >Đấu giá thành công </button>
 
                         </form:form>

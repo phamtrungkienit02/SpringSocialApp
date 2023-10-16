@@ -45,11 +45,11 @@ public class ProductAutionController {
         return "productAution";
     }
     
-    @PostMapping("/products/aution/{id}/aution")
-    public String addAution(@ModelAttribute(value = "aution") AuctionProduct aution, @PathVariable(value = "id") int id,
+    @PostMapping(value = "/products/aution/{id}")
+    public String addAutionP(@ModelAttribute(value = "aution") AuctionProduct autionP,
                                 HttpServletRequest request){
- 
-        if (this.auctionService.addAution(aution) == true) {
+        
+        if (this.auctionService.addAution(autionP) == true) {
                 String referer = request.getHeader("referer");
                 return "redirect:" + referer;
         } 
@@ -57,8 +57,8 @@ public class ProductAutionController {
         return "listProduct";
     }
     
-    @PostMapping("/products/aution/{id}/result")
-    public String addResult(@ModelAttribute(value = "result") Results rs, @PathVariable(value = "id") int id,
+    @PostMapping(value = "/products/aution/{id}/result")
+    public String addResultA(@ModelAttribute(value = "result") Results rs, 
                                 HttpServletRequest request){
  
         if (this.resultService.addResult(rs) == true) {

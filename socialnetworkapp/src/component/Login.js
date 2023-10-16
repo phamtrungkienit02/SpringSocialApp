@@ -9,11 +9,27 @@ import Apis, { authApi, endpoints } from "../configs/Apis";
 import { MyUserContext } from "../App";
 import { Navigate } from "react-router-dom";
 
+import firebase,  { auth } from "../firebase/Config";
+
+
+
+
 const Login = () => {
     const [user, dispatch] = useContext(MyUserContext);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     // const [q] = useSearchParams();
+    const fbProvider = new firebase.auth.FacebookAuthProvider();
+
+    const fbLogin = () => {
+        auth.signInWithPopup(fbProvider);
+    }
+
+    // auth.onAuthStateChanged((user) => {
+    //     console.log({user});
+    // });
+
+    
     
     const login = (evt) => {
         evt.preventDefault();
@@ -45,6 +61,7 @@ const Login = () => {
         }
         //gọi hàm
         process();
+    
     }
 
     //đăng nhập rồi về trang chủ
@@ -71,6 +88,10 @@ const Login = () => {
                 <Button variant="info" type="submit">Đăng nhập</Button>
             </Form.Group>
         </Form>
+
+
+        {/* <Button onClick={fbLogin}>Đăng nhập bằng Facebook</Button> */}
+        <Button>Đăng nhập bằng gmail</Button>
     </>
 }
 

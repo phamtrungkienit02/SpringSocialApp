@@ -52,7 +52,7 @@ const Header = () => {
                 <Nav className="me-auto">
                 <Link className="nav-link" to="/">&#127968; Trang chủ</Link>
 
-                <Link className="nav-link" to="/Posts">&#128221; Bài viết</Link>
+                <Link className="nav-link" to="/posts">&#128221; Bài viết</Link>
                     
                     <NavDropdown title="Danh mục" id="basic-nav-dropdown">
                         {categories.map(c => {
@@ -69,6 +69,7 @@ const Header = () => {
                         <Link className="nav-link text-danger" to="/register">Đăng ký</Link>
                     </>: <>
                         <Link className="nav-link text-danger" to="/">Chào {user.username}!</Link>
+                        <Link className="nav-link text-danger" to="/livestream">Livestream</Link>
                         <Button variant="secondary"  onClick={logout} >Đăng xuất</Button>
                     </>}
                     {/* <Link className="nav-link text-danger" to="/cart">&#128722; <Badge bg="danger">{cartCounter}</Badge></Link> */}

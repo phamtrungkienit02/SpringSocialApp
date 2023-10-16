@@ -78,16 +78,16 @@ const Home = () => {
             
                 {products.map(p => {
                    
-                    // let url = `/products/${p.id}`;
+                    let url = `/products/${p.id}`;
 
                     return <Col xs={12} md={3} className="mt-2 mb-2">
                                 <Card style={{ width: '18rem'}}>
                                     <Card.Img variant="top" style={{height: "15rem"}} src={p.image} fluid rounded  />
                                     <Card.Body>
                                         <Card.Title>{p.name}</Card.Title>
-                                        <Card.Text>{p.price} VNĐ</Card.Text>
+                                        <Card.Text>{p.startingPrice} VNĐ</Card.Text>
                                         <Link 
-                                        // to={url} 
+                                        to={url} 
                                         className="btn btn-info" style={{marginRight: "5px"}} variant="primary">Xem chi tiết</Link>
                                         <Button variant="success" >Vào đấu giá</Button>
                                         {/* // onClick={() => order(p)} */}

@@ -11,8 +11,12 @@ export const endpoints = {
     "current-user": `${SERVER_CONTEXT}/api/current-user/`,
     "register": `${SERVER_CONTEXT}/api/users/`,
     "posts": `${SERVER_CONTEXT}/api/posts/`,
+    "comments": `${SERVER_CONTEXT}/api/comments/`,
     // "pay": `${SERVER_CONTEXT}/api/pay/`,
-    // "details": (productId) => `${SERVER_CONTEXT}/api/products/${productId}/`,
+    //hàm
+    "listCommentByPostId": (postId) => `${SERVER_CONTEXT}/api/commentsByPostId/${postId}/`,
+    "postDetail": (postId) => `${SERVER_CONTEXT}/api/posts/${postId}/`,
+    "details": (productId) => `${SERVER_CONTEXT}/api/products/${productId}/`,
     // "comments": (productId) => `${SERVER_CONTEXT}/api/products/${productId}/comments/`,
     // "add-comment": `${SERVER_CONTEXT}/api/comments/`,
 }
